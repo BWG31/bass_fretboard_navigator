@@ -1,0 +1,33 @@
+body {
+    text-align: center;
+    background-color: rgb(98, 98, 98);
+}
+
+#fretboard {
+    border: 3px solid black;
+    margin: 0 auto;
+    zoom: 200%
+}
+
+#fretboard2 {
+    border: 2px solid black;
+    margin: 0 auto;
+    background: lightslategray;
+}
+
+table {
+    text-align: center;
+}
+
+.btn {
+    border-color: transparent;
+}
+
+.btn-light:hover {
+    background-color: rgb(190, 190, 190);
+    border-color: transparent;
+}
+
+.btn:focus {
+  border-color: transparent;
+}

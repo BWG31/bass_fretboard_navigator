@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+        <script src="game.js"></script>
+
+
+        <link href="styles.css" rel="stylesheet">
+
+        <title>Music Theory for Bass: {% block title %}{% endblock %}</title>
+
+    </head>
+
+    <body>
+        <h1>Hello</h1>
+        <table id="fretboard"></table>
+        <h2>Header2</h2>
+        <div id="question-area">
+        </div>
+        <table id="fretboard2"></table>
+        <input type="button" id="tableReset" value="Reset"/>
+        <div>
+            <p id="testArea">testArea</p>
+            <p id="testArea2">testArea2</p>
+        </div>
+        <h4>Thirds</h4>
+        <div class="btn-group">
+            <input type="radio" class="btn-check addInterval" name="third" id="thirdoption1" value="min3" />
+            <label class="btn btn-secondary" for="thirdoption1">minor 3rd</label>
+          
+            <input type="radio" class="btn-check addInterval" name="third" id="thirdoption2" value="maj3" />
+            <label class="btn btn-secondary" for="thirdoption2">Major 3rd</label>
+          </div>
+    </body>
