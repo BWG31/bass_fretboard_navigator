@@ -4,15 +4,13 @@ body {
 }
 
 #fretboard {
-    border: 3px solid black;
-    margin: 0 auto;
-    zoom: 200%
-}
-
-#fretboard2 {
     border: 2px solid black;
     margin: 0 auto;
     background: lightslategray;
+}
+
+.note {
+    border-radius: 30%;
 }
 
 table {
@@ -31,3 +29,11 @@ table {
 .btn:focus {
   border-color: transparent;
 }
+
+.reset-buttons {
+    padding: 0.5em;
+}
+
+.btn-group {
+    padding: 0.5em;
+} 
