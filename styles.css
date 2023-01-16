@@ -22,7 +22,7 @@ table {
 }
 
 .btn-light:hover {
-    background-color: rgb(190, 190, 190);
+    opacity: 80% !important;
     border-color: transparent;
 }
 
