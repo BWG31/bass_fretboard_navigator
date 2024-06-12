@@ -1,20 +1,63 @@
 body {
     text-align: center;
-    background-color: rgb(98, 98, 98);
+    color: white;
+    background-color: rgb(62, 62, 62);
 }
 
-#fretboard {
-    border: 2px solid black;
+#fretboard{
     margin: 0 auto;
-    background: lightslategray;
+    color: black;
+}
+
+.fretboard-container {
+    margin: 0 auto;
+    background-color: rgb(0, 0, 0);
+    padding: 10px;
+    overflow: auto;
+}
+
+.frettedNoteCell {
+    background: rgb(79, 54, 21);
 }
 
 .note {
-    border-radius: 30%;
+    width: 3.5em;
+    border-radius: 35%;
+
 }
 
-table {
-    text-align: center;
+.openStringCell {
+    background: transparent;
+}
+
+.nut {
+    min-width: 0.5em;
+    background-color: ivory;
+    border-right: 1px solid rgb(201, 201, 201);
+    border-left: 1px solid rgb(201, 201, 201);
+}
+.nutG {
+    border-top: 1px solid rgb(201, 201, 201);
+}
+.nutE {
+    border-bottom: 1px solid rgb(201, 201, 201);
+}
+
+.dotRowBlank, .dotRowDot, .dotRowNut {
+    background-color: rgb(228, 212, 190, 0.75);
+    border-top: 1px solid grey;
+}
+
+.dotRowEnd {
+    border-bottom-right-radius: 25%;
+    border-end-end-radius: 100%;
+}
+.dotRowNut {
+    border-bottom-left-radius: 100%;
+}
+
+.dotRow td{
+    padding: 0px;
 }
 
 .btn {
@@ -26,14 +69,58 @@ table {
     border-color: transparent;
 }
 
-.btn:focus {
-  border-color: transparent;
-}
-
-.reset-buttons {
-    padding: 0.5em;
-}
-
 .btn-group {
-    padding: 0.5em;
-} 
+    padding: 0.2em;
+}
+
+.clear-option, .add-oct-button, .scale-option{
+    margin: 0.2em;
+}
+
+.form-check {
+    align-items: center;
+}
+
+.form-check .form-check-input {
+    float:none;
+    margin-inline: 1px;
+}
+
+.root-buttons-div {
+    padding: 0.2em;
+}
+
+@media (min-width: 0px) {
+    .note {
+        font-size: 0.55rem;
+    }
+}
+@media (min-width: 576px) {
+    .note {
+        font-size: 0.6rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .note {
+        font-size: 0.7rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .note {
+        font-size: 0.8rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    .note {
+        font-size: 0.9rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    .note {
+        font-size: 1rem;
+    }
+}

@@ -10,221 +10,225 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <script src="game1.js"></script>
+        <script src="fretboardScript.js"></script>
 
 
         <link href="styles.css" rel="stylesheet">
 
-        <title>Music Theory for Bass</title>
+        <title>Bass Fretboard Nagivator</title>
 
     </head>
 
     <body>
-        <h1>Hello</h1>
-        <h2 id="maxpitch">Header2</h2>
-        <div id="question-area">
-        </div>
-        <table id="fretboard"></table>
+        <h1 class="title">Bass Fretboard Navigator</h1>
         <hr>
-        <div class="container">
+        <div class="container fretboard-container">
+            <table id="fretboard"></table>
+        </div>
+        <hr>
+        <div class="container control-panel">
             <div class="row">
-                <div class="col-lg-3 col-1-items">
+                <div class="col-lg-4 col-1-items">
                     <input class="btn btn-light shadow-none" type="button" id="tableReset" value="Reset"/>
                     <hr>
-                    <input class="btn btn-light shadow-none" type="button" id="intervalsAllReset" value="Clear Intervals"/>
-                    <input class="btn btn-light shadow-none" type="button" id="octavesAllReset" value="Clear All Octaves"/>
-                    <input class="btn btn-light shadow-none" type="button" id="octavesDownReset" value="Clear Octaves Down" />
-                    <input class="btn btn-light shadow-none" type="button" id="octavesUpReset" value="Clear Octaves Up"/>
-                    <hr>
-                    <div class="add-Oct-buttons">
-                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOct" value="Add All Octaves" disabled/>
-                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOctDown" value="Add Octaves Down" disabled/>
-                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOctUp" value="Add Octaves Up" disabled/>
+                    <div class="octaves-up-buttons">
+                        <input class="btn btn-light shadow-none clear-option" type="button" id="octavesUpReset" value="Clear Octaves ↑"/>
+                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOctUp" value="Add Octaves ↑" disabled/>
                     </div>
-                    <hr>
-                    <div class="root-options">
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rootOption" id="altRoots" value="unison" disabled>
-                            <label class="custom-control-label" for="altRoots">Alternative Root Notes</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rootOption octUp" id="unisonOctUp" value="unison" disabled>
-                            <label class="custom-control-label" for="unisonOctUp">Octaves up</label>
-                        </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input rootOption octDown" id="unisonOctDown" value="unison" disabled>
-                            <label class="custom-control-label" for="unisonOctDown">Octaves down</label>
-                        </div>
+                    <div class="octaves-down-buttons">
+                        <input class="btn btn-light shadow-none clear-option" type="button" id="octavesDownReset" value="Clear Octaves ↓" />
+                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOctDown" value="Add Octaves ↓" disabled/>
+                    </div>
+                    <div class="all-octaves-buttons">
+                        <input class="btn btn-light shadow-none clear-option" type="button" id="octavesAllReset" value="Clear Octaves ↑↓"/>
+                        <input class="btn btn-light shadow-none add-oct-button" type="button" id="addAllOct" value="Add Octaves ↑↓" disabled/>
                     </div>
                     <hr>
                 </div>
-                <div class="col-lg-6">
+                <div class="col-lg-4">
+                    <div class="root-options">
+                        <div class="root-buttons-div">
+                            <label class="btn btn-secondary shadow-none" id="rootColorDisplay" >Root</label>
+                            <label class="btn btn-secondary" id="unisonLabel">Unison</label>
+                        </div>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input rootOption octDown" id="unisonOctDown" value="unison" disabled>
+                            <label class="form-check-label" for="unisonOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input rootOption octUp" id="unisonOctUp" value="unison" disabled>
+                            <label class="form-check-label" for="unisonOctUp">↑</label>
+
+                            <input type="checkbox" class="form-check-input rootOption" id="altRoots" value="unison" disabled>
+                            <label class="form-check-label" for="altRoots">Unison</label>
+                        </div>
+                    </div>
+                    <br>
+                    <h3>Intervals</h3>
                     <div class="interval-options">
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="second" id="secondOff" value="second" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="secondOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="second" id="secondoption1" value="min2" disabled/>
-                            <label class="btn btn-secondary" for="secondoption1">minor 2nd</label>
-                            
+                            <label class="btn btn-secondary" id="min2Label" for="secondoption1">minor 2nd</label>
+
                             <input type="radio" class="btn-check addInterval" name="second" id="secondoption2" value="maj2" disabled/>
-                            <label class="btn btn-secondary" for="secondoption2">Major 2nd</label>
+                            <label class="btn btn-secondary" id="maj2Label" for="secondoption2">Major 2nd</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown secondOct" id="secondOctDown" value="second" disabled>
-                            <label class="custom-control-label" for="secondOctDown">2nd Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp secondOct" id="secondOctUp" value="second" disabled>
-                            <label class="custom-control-label" for="secondOctUp">2nd Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown secondOct" id="secondOctDown" value="second" disabled>
+                            <label class="form-check-label" for="secondOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp secondOct" id="secondOctUp" value="second" disabled>
+                            <label class="form-check-label" for="secondOctUp">↑</label>
                         </div>
-            
-                        <br>
-            
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="third" id="thirdOff" value="third" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="thirdOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="third" id="thirdoption1" value="min3" disabled/>
-                            <label class="btn btn-secondary" for="thirdoption1">minor 3rd</label>
-                            
+                            <label class="btn btn-secondary" id="min3Label" for="thirdoption1">minor 3rd</label>
+
                             <input type="radio" class="btn-check addInterval" name="third" id="thirdoption2" value="maj3" disabled/>
-                            <label class="btn btn-secondary" for="thirdoption2">Major 3rd</label>
+                            <label class="btn btn-secondary" id="maj3Label" for="thirdoption2">Major 3rd</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown thirdOct" id="thirdOctDown" value="third" disabled>
-                            <label class="custom-control-label" for="thirdOctDown">3rd Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp thirdOct" id="thirdOctUp" value="third" disabled>
-                            <label class="custom-control-label" for="thirdOctUp">3rd Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown thirdOct" id="thirdOctDown" value="third" disabled>
+                            <label class="form-check-label" for="thirdOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp thirdOct" id="thirdOctUp" value="third" disabled>
+                            <label class="form-check-label" for="thirdOctUp">↑</label>
                         </div>
-            
-                        <br>
-            
+
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="fourth" id="fourthOff" value="fourth" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="fourthOff">-</label>
-            
+
                             <input type="radio" class="btn-check addInterval" name="fourth" id="fourthoption1" value="p4" disabled/>
-                            <label class="btn btn-secondary" for="fourthoption1">Perfect 4th</label>
-            
+                            <label class="btn btn-secondary" id="p4Label" for="fourthoption1">Perfect 4th</label>
+
                             <input type="radio" class="btn-check addInterval" name="fourth" id="fourthoption2" value="aug4" disabled/>
-                            <label class="btn btn-secondary" for="fourthoption2">Augmented 4th</label>
+                            <label class="btn btn-secondary" id="aug4Label" for="fourthoption2">Aug 4th</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown fourthOct" id="fourthOctDown" value="fourth" disabled>
-                            <label class="custom-control-label" for="fourthOctDown">4th Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp fourthOct" id="fourthOctUp" value="fourth" disabled>
-                            <label class="custom-control-label" for="fourthOctUp">4th Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown fourthOct" id="fourthOctDown" value="fourth" disabled>
+                            <label class="form-check-label" for="fourthOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp fourthOct" id="fourthOctUp" value="fourth" disabled>
+                            <label class="form-check-label" for="fourthOctUp">↑</label>
                         </div>
-            
-                        <br>
-            
+
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="fifth" id="fifthOff" value="fifth" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="fifthOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="fifth" id="fifthoption1" value="dim5" disabled/>
-                            <label class="btn btn-secondary" for="fifthoption1">Diminished 5th</label>
-            
+                            <label class="btn btn-secondary" id="dim5Label" for="fifthoption1">Dim 5th</label>
+
                             <input type="radio" class="btn-check addInterval" name="fifth" id="fifthoption2" value="p5" disabled/>
-                            <label class="btn btn-secondary" for="fifthoption2">Perfect 5th</label>
-            
+                            <label class="btn btn-secondary" id="p5Label" for="fifthoption2">Perfect 5th</label>
+
                             <input type="radio" class="btn-check addInterval" name="fifth" id="fifthoption3" value="aug5" disabled/>
-                            <label class="btn btn-secondary" for="fifthoption3">Augmented 5th</label>
+                            <label class="btn btn-secondary" id="aug5Label" for="fifthoption3">Aug 5th</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown fifthOct" id="fifthOctDown" value="fifth" disabled>
-                            <label class="custom-control-label" for="fifthOctDown">5th Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp fifthOct" id="fifthOctUp" value="fifth" disabled>
-                            <label class="custom-control-label" for="fifthOctUp">5th Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown fifthOct" id="fifthOctDown" value="fifth" disabled>
+                            <label class="form-check-label" for="fifthOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp fifthOct" id="fifthOctUp" value="fifth" disabled>
+                            <label class="form-check-label" for="fifthOctUp">↑</label>
                         </div>
-                        
-                        <br>
-                        
+
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="sixth" id="sixthOff" value="sixth" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="sixthOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="sixth" id="sixthoption1" value="min6" disabled/>
-                            <label class="btn btn-secondary" for="sixthoption1">minor 6th</label>
-                            
+                            <label class="btn btn-secondary" id="min6Label" for="sixthoption1">minor 6th</label>
+
                             <input type="radio" class="btn-check addInterval" name="sixth" id="sixthoption2" value="maj6" disabled/>
-                            <label class="btn btn-secondary" for="sixthoption2">Major 6th</label>
+                            <label class="btn btn-secondary" id="maj6Label" for="sixthoption2">Major 6th</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown sixthOct" id="sixthOctDown" value="sixth" disabled>
-                            <label class="custom-control-label" for="sixthOctDown">6th Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp sixthOct" id="sixthOctUp" value="sixth" disabled>
-                            <label class="custom-control-label" for="sixthOctUp">6th Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown sixthOct" id="sixthOctDown" value="sixth" disabled>
+                            <label class="form-check-label" for="sixthOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp sixthOct" id="sixthOctUp" value="sixth" disabled>
+                            <label class="form-check-label" for="sixthOctUp">↑</label>
                         </div>
-            
-                        <br>
-            
+
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="seventh" id="seventhOff" value="seventh" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="seventhOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="seventh" id="seventhoption1" value="dim7" disabled/>
-                            <label class="btn btn-secondary" for="seventhoption1">Diminished 7th</label>
-            
+                            <label class="btn btn-secondary" id="dim7Label" for="seventhoption1">Dim 7th</label>
+
                             <input type="radio" class="btn-check addInterval" name="seventh" id="seventhoption2" value="min7" disabled/>
-                            <label class="btn btn-secondary" for="seventhoption2">minor 7th</label>
-                            
+                            <label class="btn btn-secondary" id="min7Label" for="seventhoption2">minor 7th</label>
+
                             <input type="radio" class="btn-check addInterval" name="seventh" id="seventhoption3" value="maj7" disabled/>
-                            <label class="btn btn-secondary" for="seventhoption3">Major 7th</label>
+                            <label class="btn btn-secondary" id="maj7Label" for="seventhoption3">Major 7th</label>
                         </div>
-                        <div class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input octDown seventhOct" id="seventhOctDown" value="seventh" disabled>
-                            <label class="custom-control-label" for="seventhOctDown">7th Oct Down</label>
-            
-                            <input type="checkbox" class="custom-control-input octUp seventhOct" id="seventhOctUp" value="seventh" disabled>
-                            <label class="custom-control-label" for="seventhOctUp">7th Oct Up</label>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input octDown seventhOct" id="seventhOctDown" value="seventh" disabled>
+                            <label class="form-check-label" for="seventhOctDown">↓</label>
+
+                            <input type="checkbox" class="form-check-input octUp seventhOct" id="seventhOctUp" value="seventh" disabled>
+                            <label class="form-check-label" for="seventhOctUp">↑</label>
                         </div>
                     </div>
+                    <hr>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-4">
+                    <input class="btn btn-light shadow-none clear-option" type="button" id="intervalsAllReset" value="Clear Intervals"/>
+                    <hr>
+                    <h3>Extensions</h3>
                     <div class="extension-options">
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="ninth" id="ninthOff" value="ninth" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="ninthOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="ninth" id="ninthoption1" value="flat9" disabled/>
-                            <label class="btn btn-secondary" for="ninthoption1">Flat 9th</label>
-            
+                            <label class="btn btn-secondary" id="flat9Label" for="ninthoption1">♭9</label>
+
                             <input type="radio" class="btn-check addInterval" name="ninth" id="ninthoption2" value="nat9" disabled/>
-                            <label class="btn btn-secondary" for="ninthoption2">9th</label>
-                            
+                            <label class="btn btn-secondary" id="nat9Label" for="ninthoption2">9</label>
+
                             <input type="radio" class="btn-check addInterval" name="ninth" id="ninthoption3" value="sharp9" disabled/>
-                            <label class="btn btn-secondary" for="ninthoption3">Sharp 9th</label>
+                            <label class="btn btn-secondary" id="sharp9Label" for="ninthoption3">♯9</label>
                         </div>
                         <br>
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="eleventh" id="eleventhOff" value="eleventh" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="eleventhOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="eleventh" id="eleventhoption1" value="nat11" disabled/>
-                            <label class="btn btn-secondary" for="eleventhoption1">11th</label>
-            
+                            <label class="btn btn-secondary" id="nat11Label" for="eleventhoption1">11</label>
+
                             <input type="radio" class="btn-check addInterval" name="eleventh" id="eleventhoption2" value="sharp11" disabled/>
-                            <label class="btn btn-secondary" for="eleventhoption2">Sharp 11th</label>
+                            <label class="btn btn-secondary" id="sharp11Label" for="eleventhoption2">♯11</label>
                         </div>
                         <br>
                         <div class="btn-group">
                             <input type="radio" class="btn-check degreeOff" name="thirteenth" id="thirteenthOff" value="thirteenth" checked="checked" disabled/>
                             <label class="btn btn-secondary" for="thirteenthOff">-</label>
-                            
+
                             <input type="radio" class="btn-check addInterval" name="thirteenth" id="thirteenthoption1" value="flat13" disabled/>
-                            <label class="btn btn-secondary" for="thirteenthoption1">Flat 13th</label>
-            
+                            <label class="btn btn-secondary" id="flat13Label" for="thirteenthoption1">♭13</label>
+
                             <input type="radio" class="btn-check addInterval" name="thirteenth" id="thirteenthoption2" value="nat13" disabled/>
-                            <label class="btn btn-secondary" for="thirteenthoption2">13th</label>
+                            <label class="btn btn-secondary" id="nat13Label" for="thirteenthoption2">13</label>
                         </div>
+                    </div>
+                    <hr>
+                    <div class="scale-options">
+                        <h3>Scales</h3>
+                        <input class="btn btn-light scale-option" type="button" id="scaleAddMajor" value="Major" disabled/>
+                        <input class="btn btn-light scale-option" type="button" id="scaleAddMinor" value="minor" disabled/>
                     </div>
                 </div>
             </div>
         </div>
-        
+
     </body>
